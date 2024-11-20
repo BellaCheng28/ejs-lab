@@ -8,29 +8,17 @@
   <body>
     <%- include('./partials/nav') %>
     <h1>Full Menu</h1>
+  <ul>
+    <% menu.forEach((item)=>{ %>
+       <li>
+        <p>name</p> <%= item.name %>
+        <p>price</p>  <%= item.price %>
+        <p>rating</p> <%= item.rating %>
+        <p>details</p> <%= item.details %>
+      </li> 
+    <% }) %>
+  </ul>
 
-    <h2>mains</h2>
-    <% menu.forEach(element => { %> <% if(element.category ==='mains') {%>
-    <p>name:<%= element.name%></p>
-    <p>price:<%=element.price%></p>
-    <p>rating:<%= element.price%></p>
-    <p>details:<%= element.details%></p>
-    <% }%> <% })%>;
-
-    <h2>desserts</h2>
-    <% menu.forEach(element => { %> <% if(element.category ==='desserts') {%>
-    <p>name:<%= element.name%></p>
-    <p>price:<%=element.price%></p>
-    <p>rating:<%= element.price%></p>
-    <p>details:<%= element.details%></p>
-    <% }%> <% })%>;
-
-    <h2>sides</h2>
-    <% menu.forEach(element => { %> <% if(element.category ==='sides') {%>
-    <p>name:<%= element.name%></p>
-    <p>price:<%=element.price%></p>
-    <p>rating:<%= element.price%></p>
-    <p>details:<%= element.details%></p>
-    <% }%> <% })%>;
+ 
   </body>
 </html>

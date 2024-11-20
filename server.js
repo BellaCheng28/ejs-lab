@@ -61,20 +61,19 @@ app.get("/", (req, res) => {
   });
 });
 
-app.get('/menu',(req,res) => {
-  res.render("menu.ejs",{menu:RESTAURANT.menu });
-  
+app.get("/menu", (req, res) => {
+  res.render("menu.ejs", { menu: RESTAURANT.menu });
 });
 
+app.get("/menu/:category", (req, res) => {
+  const {category} = req.params;
+  console.log(req.params);
+  let menuItems = RESTAURANT.menu.filter(
+    (element) => element.category == category
+  );
 
-
-app.get('/menu/:category',(req,res)=> {
-const {item} = req.params;
-let menuItems = RESTAURANT.menu.filter((element) => element.category === item )
-   
-
-res.render('category.ejs',{menuItems:menuItems})
-})
+  res.render("category.ejs", { menuItems: menuItems });
+});
 
 app.listen(3000, () => {
   console.log("Listening on port 3000");
